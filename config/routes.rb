@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'sigfox#index'
   get "sigfox/index"
   get "sigfox/devicetype" => "sigfox#devicetype"
+  get "sigfox/map"
+  get "sigfox/gpslocation" => "sigfox#gpslocation"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

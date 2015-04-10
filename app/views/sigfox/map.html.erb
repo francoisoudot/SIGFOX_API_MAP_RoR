@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+<script>
+window.setInterval(check_locations, 3000);
+var map;
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(37.773612, -122.415819),
+    zoom:15,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+
+function check_locations(){
+	var url="/sigfox/gpslocation";
+	var data;
+	var request=$.ajax({
+	url: url,
+	type: "GET",
+	beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+	success: function(data){gps_marker(data)}
+	});
+}
+
+function gps_marker(data){
+  /0 - to optimize through loop/
+  var LatLng0 = new google.maps.LatLng(parseFloat(data.p0.lat),parseFloat(data.p0.lng));
+  var marker0=new google.maps.Marker({ position:LatLng0});
+  marker0.setMap(map);
+  /1/
+  var LatLng1 = new google.maps.LatLng(parseFloat(data.p1.lat),parseFloat(data.p1.lng));
+  var marker1=new google.maps.Marker({ position:LatLng1});
+  marker1.setMap(map);
+	/2/
+  var LatLng2 = new google.maps.LatLng(parseFloat(data.p2.lat),parseFloat(data.p2.lng));
+  var marker2=new google.maps.Marker({ position:LatLng2});
+  marker2.setMap(map);
+  /3/
+  var LatLng3 = new google.maps.LatLng(parseFloat(data.p3.lat),parseFloat(data.p3.lng));
+  var marker3=new google.maps.Marker({ position:LatLng3});
+  marker3.setMap(map);
+  /4/
+  var LatLng4 = new google.maps.LatLng(parseFloat(data.p4.lat),parseFloat(data.p4.lng));
+  var marker4=new google.maps.Marker({ position:LatLng4});
+  marker4.setMap(map);
+  /5/
+  var LatLng5 = new google.maps.LatLng(parseFloat(data.p5.lat),parseFloat(data.p5.lng));
+  var marker5=new google.maps.Marker({ position:LatLng5});
+  marker5.setMap(map);
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:1000px;height:500px;" align="center"></div>
+
+</body>
+</html>
