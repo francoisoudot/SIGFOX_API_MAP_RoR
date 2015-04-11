@@ -6,7 +6,7 @@
 
 
 <script>
-window.setInterval(check_locations, 3000);
+window.setInterval(check_locations, 5000);
 var map;
 var iconBase = "https://backend.sigfox.com/resources/img/favicon.png?v=4.2.3%2520-%2520197"
 
@@ -17,6 +17,11 @@ function initialize() {
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+  check_locations();
+  var bounds = new google.maps.LatLngBounds();
+  bounds.extend(marker.position);
+  map.fitBounds(bounds);
+
 }
 
 function check_locations(){

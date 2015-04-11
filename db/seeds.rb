@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13")
-Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13")
-Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13")
-Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13")
-Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13")
-Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13")
-Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13")
+Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13", gps:true)
+Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13", gps:true)
+Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13", gps:true)
+Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13", gps:true)
+Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13", gps:true)
+Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13", gps:true)
+Devicetype.create(device_id:"7FB28" , data:"023b988b8749898624162a00",time:"2015-04-10 03:01:13", gps:true)
 
