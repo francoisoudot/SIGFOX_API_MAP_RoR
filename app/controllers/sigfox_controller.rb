@@ -33,11 +33,11 @@ class SigfoxController < ApplicationController
     latestloc=Devicetype.order(created_at: :desc).where(device_id:"7FB28").limit(10)
     # /JSON render to optimise with a loop/
     render :json=>{
-      "p0" => { "lat" => parse_coord(latestloc[0].data[0..7]),"lng"=>parse_coord(latestloc[0].data[8..15])}
-      "p1" => { "lat" => parse_coord(latestloc[1].data[0..7]),"lng"=>parse_coord(latestloc[1].data[8..15])}
-      "p2" => { "lat" => parse_coord(latestloc[2].data[0..7]),"lng"=>parse_coord(latestloc[2].data[8..15])}
-      "p3" => { "lat" => parse_coord(latestloc[3].data[0..7]),"lng"=>parse_coord(latestloc[3].data[8..15])}
-      "p4" => { "lat" => parse_coord(latestloc[4].data[0..7]),"lng"=>parse_coord(latestloc[4].data[8..15])}
+      "p0" => { "lat" => parse_coord(latestloc[0].data[0..7]),"lng"=>parse_coord(latestloc[0].data[8..15])},
+      "p1" => { "lat" => parse_coord(latestloc[1].data[0..7]),"lng"=>parse_coord(latestloc[1].data[8..15])},
+      "p2" => { "lat" => parse_coord(latestloc[2].data[0..7]),"lng"=>parse_coord(latestloc[2].data[8..15])},
+      "p3" => { "lat" => parse_coord(latestloc[3].data[0..7]),"lng"=>parse_coord(latestloc[3].data[8..15])},
+      "p4" => { "lat" => parse_coord(latestloc[4].data[0..7]),"lng"=>parse_coord(latestloc[4].data[8..15])},
       "p5" => { "lat" => parse_coord(latestloc[1].data[0..7]),"lng"=>parse_coord(latestloc[5].data[8..15])}
     }
   end
