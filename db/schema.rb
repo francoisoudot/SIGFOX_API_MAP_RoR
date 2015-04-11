@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150327023128) do
     t.string   "data"
     t.string   "rssi"
     t.string   "signal"
+    t.boolean  "gps"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

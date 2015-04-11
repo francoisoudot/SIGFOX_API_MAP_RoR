@@ -6,13 +6,18 @@ class SigfoxController < ApplicationController
   def devicetype
     
     device_id=params['id']
-
+    if params['data'][0..15]=="0000000000000000"
+      gps=false
+    else
+      gps=true
+    end
    Devicetype.create(
    	:device_id=>device_id,
    	:time=>params['time'],
    	:data=>params['data'],
    	:rssi=>params['rssi'],
-   	:signal=>params['signal'])
+   	:signal=>params['signal'],
+    :gps=>gps)
 
    # /JSON answer to the DL/
 
@@ -28,18 +33,16 @@ class SigfoxController < ApplicationController
   end
 
   def gpslocation
-    # binding.pry
-    # /WARNING - TO CHANGE THE DEVICE ID/
-    latestloc=Devicetype.order(created_at: :desc).where(device_id:"7FB28").limit(10)
+    # /WARNING - TO CHANGE THE DEVICE ID and add the GPS flag/
+    latestloc=Devicetype.order(created_at: :desc).where(device_id:"7FB28").limit(50)
     # /JSON render to optimise with a loop/
-    render :json=>{
-      "p0" => { "lat" => parse_coord(latestloc[0].data[0..7]),"lng"=>parse_coord(latestloc[0].data[8..15])},
-      "p1" => { "lat" => parse_coord(latestloc[1].data[0..7]),"lng"=>parse_coord(latestloc[1].data[8..15])},
-      "p2" => { "lat" => parse_coord(latestloc[2].data[0..7]),"lng"=>parse_coord(latestloc[2].data[8..15])},
-      "p3" => { "lat" => parse_coord(latestloc[3].data[0..7]),"lng"=>parse_coord(latestloc[3].data[8..15])},
-      "p4" => { "lat" => parse_coord(latestloc[4].data[0..7]),"lng"=>parse_coord(latestloc[4].data[8..15])},
-      "p5" => { "lat" => parse_coord(latestloc[1].data[0..7]),"lng"=>parse_coord(latestloc[5].data[8..15])}
-    }
+    i=0
+    hashloc=Hash.new 
+    latestloc.each do |ll|
+      hashloc.merge!({"p"+i.to_s => { "lat" => parse_coord(ll.data[0..7]),"lng"=>parse_coord(ll.data[8..15])}})
+      i=i+1
+    end
+    render :json=> hashloc
   end
 
   def parse_coord(coord)

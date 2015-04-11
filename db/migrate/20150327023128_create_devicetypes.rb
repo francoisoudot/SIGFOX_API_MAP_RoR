@@ -6,6 +6,7 @@ class CreateDevicetypes < ActiveRecord::Migration
       t.string :data
       t.string :rssi
       t.string :signal
+      t.boolean :gps
 
       t.timestamps
     end
