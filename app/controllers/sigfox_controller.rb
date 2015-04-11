@@ -14,10 +14,10 @@ class SigfoxController < ApplicationController
    	:rssi=>params['rssi'],
    	:signal=>params['signal'])
 
-   /JSON answer to the DL/
+   # /JSON answer to the DL/
 
     if params['ack']=="true"
-      /change the data to send back/
+      # /change the data to send back/
       render :json=>{
         device_id => { "downlinkData" => "deadbeefbabebabe"}
       }
@@ -28,10 +28,10 @@ class SigfoxController < ApplicationController
   end
 
   def gpslocation
-    binding.pry
-    /WARNING - TO CHANGE THE DEVICE ID/
+    # binding.pry
+    # /WARNING - TO CHANGE THE DEVICE ID/
     latestloc=Devicetype.order(created_at: :desc).where(device_id:"7FB28").limit(10)
-    /JSON render to optimise with a loop/
+    # /JSON render to optimise with a loop/
     render :json=>{
       "p0" => { "lat" => parse_coord(latestloc[0].data[0..7]),"lng"=>parse_coord(latestloc[0].data[8..15])}
       "p1" => { "lat" => parse_coord(latestloc[1].data[0..7]),"lng"=>parse_coord(latestloc[1].data[8..15])}

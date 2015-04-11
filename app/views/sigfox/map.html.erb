@@ -29,27 +29,27 @@ function check_locations(){
 }
 
 function gps_marker(data){
-  /0 - to optimize through loop/
+  // /0 - to optimize through loop/
   var LatLng0 = new google.maps.LatLng(parseFloat(data.p0.lat),parseFloat(data.p0.lng));
   var marker0=new google.maps.Marker({ position:LatLng0});
   marker0.setMap(map);
-  /1/
+  // /1/
   var LatLng1 = new google.maps.LatLng(parseFloat(data.p1.lat),parseFloat(data.p1.lng));
   var marker1=new google.maps.Marker({ position:LatLng1});
   marker1.setMap(map);
-	/2/
+	// /2/
   var LatLng2 = new google.maps.LatLng(parseFloat(data.p2.lat),parseFloat(data.p2.lng));
   var marker2=new google.maps.Marker({ position:LatLng2});
   marker2.setMap(map);
-  /3/
+  // /3/
   var LatLng3 = new google.maps.LatLng(parseFloat(data.p3.lat),parseFloat(data.p3.lng));
   var marker3=new google.maps.Marker({ position:LatLng3});
   marker3.setMap(map);
-  /4/
+  // /4/
   var LatLng4 = new google.maps.LatLng(parseFloat(data.p4.lat),parseFloat(data.p4.lng));
   var marker4=new google.maps.Marker({ position:LatLng4});
   marker4.setMap(map);
-  /5/
+  // /5/
   var LatLng5 = new google.maps.LatLng(parseFloat(data.p5.lat),parseFloat(data.p5.lng));
   var marker5=new google.maps.Marker({ position:LatLng5});
   marker5.setMap(map);
