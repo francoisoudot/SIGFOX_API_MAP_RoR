@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="width:100%; height:100%;">
 <head>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -8,6 +8,7 @@
 <script>
 window.setInterval(check_locations, 3000);
 var map;
+var iconBase = "https://backend.sigfox.com/resources/img/favicon.png?v=4.2.3%2520-%2520197"
 function initialize() {
   var mapProp = {
     center:new google.maps.LatLng(37.773612, -122.415819),
@@ -31,37 +32,64 @@ function check_locations(){
 function gps_marker(data){
   // /0 - to optimize through loop/
   var LatLng0 = new google.maps.LatLng(parseFloat(data.p0.lat),parseFloat(data.p0.lng));
-  var marker0=new google.maps.Marker({ position:LatLng0});
+  var marker0=new google.maps.Marker({ position:LatLng0,icon:iconBase});
   marker0.setMap(map);
   // /1/
   var LatLng1 = new google.maps.LatLng(parseFloat(data.p1.lat),parseFloat(data.p1.lng));
-  var marker1=new google.maps.Marker({ position:LatLng1});
+  var marker1=new google.maps.Marker({ position:LatLng1,icon:iconBase});
   marker1.setMap(map);
 	// /2/
   var LatLng2 = new google.maps.LatLng(parseFloat(data.p2.lat),parseFloat(data.p2.lng));
-  var marker2=new google.maps.Marker({ position:LatLng2});
+  var marker2=new google.maps.Marker({ position:LatLng2,icon:iconBase});
   marker2.setMap(map);
   // /3/
   var LatLng3 = new google.maps.LatLng(parseFloat(data.p3.lat),parseFloat(data.p3.lng));
-  var marker3=new google.maps.Marker({ position:LatLng3});
+  var marker3=new google.maps.Marker({ position:LatLng3,icon:iconBase});
   marker3.setMap(map);
   // /4/
   var LatLng4 = new google.maps.LatLng(parseFloat(data.p4.lat),parseFloat(data.p4.lng));
-  var marker4=new google.maps.Marker({ position:LatLng4});
+  var marker4=new google.maps.Marker({ position:LatLng4,icon:iconBase});
   marker4.setMap(map);
   // /5/
   var LatLng5 = new google.maps.LatLng(parseFloat(data.p5.lat),parseFloat(data.p5.lng));
-  var marker5=new google.maps.Marker({ position:LatLng5});
+  var marker5=new google.maps.Marker({ position:LatLng5,icon:iconBase});
   marker5.setMap(map);
 }
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+<style type="text/css">
+.google-wrapper {
+    position: relative;
+
+}
+
+/*#googleMap {
+    width  : 500px;
+    height : 380px;
+}*/
+
+#google-map-overlay {
+    position: absolute;
+    opacity: 0.7;
+    top: 0px; 
+    left: 0px; 
+    z-index: 99;
+}
+</style>
 </head>
 
-<body>
-<div id="googleMap" style="width:1000px;height:500px;" align="center"></div>
+<body style="width:100%; height:100%;margin:0px;">
+	<div class="google-wrapper" style="width:100%; height:100%;">
+				
+
+		<div id="googleMap" style="width:100%; height:100%;" class="over_map"></div>
+		<div id="google-map-overlay">		
+ 			<img src="http://sigfox.com/static/sigfox/img/src/logo-sigfox.png" style="width:100%; height:100%;" >
+
+		</div>
+	</div>
 
 </body>
 </html>
