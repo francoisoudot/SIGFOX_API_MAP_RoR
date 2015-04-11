@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327023128) do
+ActiveRecord::Schema.define(version: 20150411111306) do
 
   create_table "devicetypes", force: true do |t|
     t.string   "device_id"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20150327023128) do
     t.string   "data"
     t.string   "rssi"
     t.string   "signal"
-    t.boolean  "gps"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "gps"
   end
 
 end
