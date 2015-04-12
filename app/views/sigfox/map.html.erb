@@ -57,13 +57,33 @@ google.maps.event.addDomListener(window, 'load', initialize);
     height : 380px;
 }*/
 
-#google-map-overlay {
+#google-map-overlay-g {
     position: absolute;
     opacity: 0.7;
-    top: 0px; 
-    left: 0px; 
+    top: 1%; 
+    left: 0.5%; 
     z-index: 99;
 }
+#google-map-overlay-d {
+    position: absolute;
+    opacity: 0.7;
+    top: 1%; 
+    right: 0.5%; 
+    z-index: 99;
+}
+
+#logo-sigfox {
+    width:100%;
+    height:100%;
+    float: left;
+}
+
+#logo-samsung {
+    width:65%;
+    height:65%;
+    float: right;
+}
+
 </style>
 </head>
 
@@ -72,10 +92,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				
 
 		<div id="googleMap" style="width:100%; height:100%;" class="over_map"></div>
-		<div id="google-map-overlay">		
- 			<img src="http://sigfox.com/static/sigfox/img/src/logo-sigfox.png" style="width:100%; height:100%;" >
-
+		<div id="google-map-overlay-g">		
+ 			<img id="logo-sigfox" src="http://sigfox.com/static/sigfox/img/src/logo-sigfox.png">
 		</div>
+    <div id="google-map-overlay-d">   
+      <img id="logo-samsung" src="http://vignette1.wikia.nocookie.net/conworld/images/c/c3/698px-Samsung_Logo.svg.png/revision/latest?cb=20101213172911" >
+    </div>
 	</div>
 
 </body>
