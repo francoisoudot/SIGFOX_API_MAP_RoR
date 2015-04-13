@@ -6,7 +6,7 @@
 
 
 <script>
-window.setInterval(check_locations, 10000);
+window.setInterval(check_locations, 20000);
 var map;
 var iconBase = "/favicon.png"
 
@@ -18,9 +18,9 @@ function initialize() {
   };
   map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
   check_locations();
-  var bounds = new google.maps.LatLngBounds();
-  bounds.extend(marker.position);
-  map.fitBounds(bounds);
+  // var bounds = new google.maps.LatLngBounds();
+  // bounds.extend(marker.position);
+  // map.fitBounds(bounds);
 
 }
 
