@@ -6,7 +6,7 @@ class SigfoxController < ApplicationController
   def devicetype
     
     device_id=params['id']
-    if params['data'][0..15]=="0000000000000000"
+    if params['data'][0..15]=="0000000000000000" || params['data'].size!=24
       gps=false
     else
       gps=true
@@ -34,14 +34,14 @@ class SigfoxController < ApplicationController
 
   def gpslocation
     # /WARNING - TO CHANGE THE DEVICE ID and add the GPS flag/
-    latestloc=Devicetype.order(created_at: :desc).where(gps:true).limit(250)
+    latestloc=Devicetype.order(created_at: :desc).where(gps:true).limit(20)
     # /JSON render to optimise with a loop/
     i=0
     hashloc=Hash.new 
     latestloc.each do |ll|
       hashloc.merge!({"p"+i.to_s => { "lat" => parse_coord(ll.data[0..7]),"lng"=>parse_coord(ll.data[8..15])}})
       i=i+1
-    end
+    endx
     render :json=> hashloc
   end
 
