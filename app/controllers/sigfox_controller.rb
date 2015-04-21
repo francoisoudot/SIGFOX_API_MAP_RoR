@@ -34,7 +34,7 @@ class SigfoxController < ApplicationController
 
   def gpslocation
     # /WARNING - TO CHANGE THE DEVICE ID and add the GPS flag/
-    latestloc=Devicetype.order(created_at: :desc).where(gps:true).limit(20)
+    latestloc=Devicetype.order(created_at: :desc).where(gps:true).limit(5)
     # /JSON render to optimise with a loop/
     i=0
     hashloc=Hash.new 
