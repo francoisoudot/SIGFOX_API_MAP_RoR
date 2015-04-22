@@ -1,5 +1,5 @@
 # SIGFOX_API_RoR
-Integration of SIGFOX API uplink and downlink with Ruby on Rails
+Integration of SIGFOX API uplink and downlink with Ruby on Rails + mapping of the GPS position provided by the demonstrator Adeunis
 
 ## 1. Introduction
 SIGFOX - <http://sigfox.com/> - is the first and only company providing global cellular connectivity for the Internet of Things, fully dedicated to low-throughput communications. SIGFOX is re-inventing connectivity by radically lowering prices and energy consumption for connected devices.
