@@ -18,9 +18,7 @@ function initialize() {
   };
   map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
   check_locations();
-  // var bounds = new google.maps.LatLngBounds();
-  // bounds.extend(marker.position);
-  // map.fitBounds(bounds);
+
 
 }
 
@@ -94,9 +92,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		<div id="google-map-overlay-g">			
       <%= image_tag "logo-sigfox.png", id:"logo-sigfox" %>
     </div>
-    <div id="google-map-overlay-d">   
-      <%= image_tag "logo-samsung.png", id:"logo-samsung" %>
-    </div>
+
 	</div>
 
 </body>
